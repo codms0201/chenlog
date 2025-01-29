@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>글 수정</title>
+</head>
+<body>
+<header>
+    <h1>글 수정</h1>
+</header>
+<main>
+    <form th:action="@{/posts/{id}(id=${form.id})}" method="post">
+        <input type="hidden" name="_method" value="put"/> <!-- PUT 메서드를 전달 -->
+        <input type="hidden" name="id" th:value="${form.id}"/>
+
+        <label for="title">제목:</label>
+        <input type="text" id="title" name="title" th:value="${form.title}" required>
+
+        <label for="content">내용:</label>
+        <textarea id="content" name="content" th:text="${form.content}" required></textarea>
+
+        <label for="author">작성자:</label>
+        <input type="text" id="author" name="author" th:value="${form.author}" required>
+
+        <button type="submit">수정</button>
+    </form>
+</main>
+</body>
+</html>
